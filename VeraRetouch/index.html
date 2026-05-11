@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeraRetouch Project Page</title>
+    <meta
+      name="description"
+      content="Official project page for VeraRetouch, a lightweight fully differentiable framework for multi-task reasoning photo retouching."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand">
+            <img class="brand-logo" src="./logo.png" alt="VeraRetouch logo" />
+            <span>VeraRetouch</span>
+          </div>
+          <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#results">Results</a>
+            <a href="#method">Method</a>
+            <a href="#dataset">Dataset</a>
+            <a href="#citation">Citation</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="eyebrow">Reasoning Photo Retouching</p>
+            <h1>
+              VeraRetouch: A Lightweight Fully Differentiable Framework for
+              Multi-Task Reasoning Photo Retouching
+            </h1>
+            <p class="hero-text">
+              A research system for automatic, style-driven, and parameterized
+              photo retouching with an interpretable reasoning pipeline and a
+              fully differentiable retouch renderer.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="https://arxiv.org/abs/2604.27375"
+                target="_blank"
+                rel="noreferrer"
+                >Read Paper</a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/OpenVeraTeam/VeraRetouch"
+                target="_blank"
+                rel="noreferrer"
+                >Code</a
+              >
+            </div>
+
+            <div class="hero-metrics hero-metrics-inline">
+              <div>
+                <strong>0.5B</strong>
+                <span>VLM core</span>
+              </div>
+              <div>
+                <strong>1M+</strong>
+                <span>AetherRetouch dataset</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>Retouching modes</span>
+              </div>
+            </div>
+
+            <div class="authors">
+              <span>Yihong Guo</span>
+              <span>Youwei Lyu</span>
+              <span>Jiajun Tang</span>
+              <span>Yizhuo Zhou</span>
+              <span>Hongliang Wang</span>
+              <span>Jinwei Chen</span>
+              <span>Changqing Zou</span>
+              <span>Qingnan Fan</span>
+            </div>
+          </section>
+        </div>
+      </header>
+
+      <main>
+        <section class="section overview" id="overview">
+          <div class="section-heading">
+            <p class="eyebrow">Overview</p>
+          </div>
+          <div class="overview-grid">
+            <article class="glass-card abstract-card">
+              <h3>Abstract</h3>
+              <p>
+                Reasoning photo retouching has gained significant traction,
+                requiring models to analyze image defects, give reasoning
+                processes, and execute precise retouching enhancements.
+                However, existing approaches often rely on non-differentiable
+                external software, creating optimization barriers and suffering
+                from high parameter redundancy and limited generalization. To
+                address these challenges, we propose VeraRetouch, a lightweight
+                and fully differentiable framework for multi-task photo
+                retouching. We employ a 0.5B Vision-Language Model (VLM) as the
+                central intelligence to formulate retouching plans based on
+                instructions and scene semantics. Furthermore, we develop a
+                fully differentiable Retouch Renderer that replaces external
+                tools, enabling direct end-to-end pixel-level training through
+                decoupled control latents for lighting, global color, and
+                specific color adjustments. To overcome data scarcity, we
+                introduce AetherRetouch-1M+, the first million-scale dataset
+                for professional retouching, constructed via a new inverse
+                degradation workflow. Furthermore, we propose DAPO-AE, a
+                reinforcement learning post-training strategy that enhances
+                autonomous aesthetic cognition. Extensive experiments
+                demonstrate that VeraRetouch achieves state-of-the-art
+                performance across multiple benchmarks while maintaining a
+                significantly smaller footprint, enabling mobile deployment.
+              </p>
+            </article>
+
+            <article class="glass-card highlights-card">
+              <h3>Highlights</h3>
+              <ul class="feature-list">
+                <li>Lightweight design for controllable, interpretable mobile deployment</li>
+                <li>Free-resolution input for flexible retouching across diverse image sizes</li>
+                <li>Fully differentiable renderer for direct pixel-level training</li>
+                <li>Unified support for auto, style, and parameter retouching</li>
+                <li>AetherRetouch-1M+ for large-scale professional supervision</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section results" id="results">
+          <div class="section-heading">
+            <p class="eyebrow">Visual Results</p>
+            <h2>Comparisons across three retouching modes</h2>
+            <p>
+              Drag the divider to inspect how the model reshapes lighting,
+              palette, and local color relationships while preserving detail.
+              Auto mode autonomously analyzes image defects and generates reasoning-aware enhancements without any user prompt.
+              Style mode translates stylistic text prompts into visual adjustments by formulating a structured retouching plan and control latents.
+              Param mode executes exact pixel-level modifications based on professional operational parameters.
+              (Note: The comprehensive reasoning text produced by the model has been truncated for this display to prioritize visual clarity.)
+            </p>
+          </div>
+          <div class="mode-section">
+            <div class="mode-header">
+              <div>
+                <p class="mode-eyebrow">Mode 01</p>
+                <h3>Auto Mode</h3>
+              </div>
+              <span class="mode-description">Image-only automatic retouching</span>
+            </div>
+            <div class="comparison-grid" id="auto-comparison-grid"></div>
+          </div>
+
+          <div class="mode-section">
+            <div class="mode-header">
+              <div>
+                <p class="mode-eyebrow">Mode 02</p>
+                <h3>Style Mode</h3>
+              </div>
+              <span class="mode-description">Prompt-guided stylistic retouching</span>
+            </div>
+            <div class="comparison-grid" id="style-comparison-grid"></div>
+          </div>
+
+          <div class="mode-section">
+            <div class="mode-header">
+              <div>
+                <p class="mode-eyebrow">Mode 03</p>
+                <h3>Param Mode</h3>
+              </div>
+              <span class="mode-description">Instruction and parameter driven retouching</span>
+            </div>
+            <div class="param-grid" id="param-comparison-grid"></div>
+          </div>
+        </section>
+
+        <section class="section method" id="method">
+          <div class="section-heading">
+            <p class="eyebrow">Method</p>
+            <h2>A compact pipeline with explicit control over retouching intent</h2>
+          </div>
+          <div class="method-figure glass-card">
+            <img
+              class="method-figure-image"
+              src="./Model-Structure.png"
+              alt="VeraRetouch model structure pipeline"
+            />
+          </div>
+          <div class="pipeline">
+            <article class="pipeline-card">
+              <span class="pipeline-index">01</span>
+              <h3>Reasoning Brain</h3>
+              <p>
+                A 0.5B vision-language model reads the image and optional user
+                request, then produces an interpretable retouching plan.
+              </p>
+            </article>
+            <article class="pipeline-card">
+              <span class="pipeline-index">02</span>
+              <h3>Disentangled Controls</h3>
+              <p>
+                Internal latents separate lighting, global color, and
+                specific-color adjustments for finer retouch behavior.
+              </p>
+            </article>
+            <article class="pipeline-card">
+              <span class="pipeline-index">03</span>
+              <h3>Differentiable Rendering</h3>
+              <p>
+                The renderer replaces external editing software so the whole
+                system can be trained end to end at pixel level.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section dataset" id="dataset">
+          <div class="section-heading">
+            <p class="eyebrow">Dataset</p>
+            <h2>AetherRetouch Dataset</h2>
+            <p>
+              To support large-scale reasoning photo retouching, VeraRetouch
+              introduces AetherRetouch-1M+, a million-scale dataset designed
+              for professional-quality enhancement. The dataset covers diverse
+              scenes, lighting conditions, portrait and landscape content, and
+              rich retouching targets across auto, style, and parameter-driven
+              workflows.
+            </p>
+            <p>
+              AetherRetouch is organized into three complementary parts:
+              Auto-Retouch pairs for image-only enhancement, Style-Retouch
+              pairs for prompt-guided stylistic editing, and Param-Retouch
+              examples for explicit parameter-driven control. Together, these
+              three subsets provide broad supervision for reasoning,
+              controllability, and visual generalization across real retouching
+              scenarios.
+            </p>
+          </div>
+
+          <div class="dataset-showcase glass-card">
+            <img
+              class="dataset-image"
+              src="./dataset.jpg"
+              alt="Representative examples from the AetherRetouch dataset"
+            />
+          </div>
+
+          <div class="dataset-text glass-card">
+            <p>
+              The data construction pipeline below mainly illustrates how the
+              Auto-Retouch subset is built through an inverse degradation
+              process. Starting from high-quality retouched references, the
+              pipeline synthesizes realistic low-quality inputs to form
+              supervision pairs for differentiable planning and rendering. This
+              strategy enables scalable collection while preserving strong
+              retouch targets and realistic visual degradation patterns.
+            </p>
+          </div>
+
+          <div class="dataset-pipeline glass-card">
+            <img
+              class="dataset-image"
+              src="./DataPipeline.png"
+              alt="AetherRetouch data construction pipeline"
+            />
+          </div>
+        </section>
+
+        <section class="section citation" id="citation">
+          <div class="section-heading">
+            <p class="eyebrow">Citation</p>
+            <h2>Use VeraRetouch in your research</h2>
+          </div>
+          <div class="citation-card glass-card">
+            <pre><code>@article{guo2026veraretouch,
+  title={VeraRetouch: A Lightweight Fully Differentiable Framework for Multi-Task Reasoning Photo Retouching},
+  author={Guo, Yihong and Lyu, Youwei and Tang, Jiajun and Zhou, Yizhuo and Wang, Hongliang and Chen, Jinwei and Zou, Changqing and Fan, Qingnan},
+  journal={arXiv preprint arXiv:2604.27375},
+  year={2026}
+}</code></pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="comparison-template">
+      <article class="comparison-card">
+        <div class="comparison-topline">
+          <span class="comparison-kicker">Sample</span>
+          <div class="comparison-meta">
+            <span class="comparison-name"></span>
+            <span class="mode-badge">Auto Mode</span>
+          </div>
+        </div>
+        <div class="compare" data-start="50">
+          <img class="before-image" alt="" />
+          <div class="after-layer">
+            <img class="after-image" alt="" />
+          </div>
+          <div class="compare-line"></div>
+          <button class="compare-handle" aria-label="Drag to compare"></button>
+          <div class="compare-label before-label">Before</div>
+          <div class="compare-label after-label">After</div>
+        </div>
+      </article>
+    </template>
+
+    <template id="param-template">
+      <article class="param-card">
+        <div class="comparison-topline">
+          <span class="comparison-kicker">Sample</span>
+          <div class="comparison-meta">
+            <span class="comparison-name"></span>
+            <span class="mode-badge">Param Mode</span>
+          </div>
+        </div>
+        <div class="compare" data-start="50">
+          <img class="before-image" alt="" />
+          <div class="after-layer">
+            <img class="after-image" alt="" />
+          </div>
+          <div class="compare-line"></div>
+          <button class="compare-handle" aria-label="Drag to compare"></button>
+          <div class="compare-label before-label">Before</div>
+          <div class="compare-label after-label">After</div>
+        </div>
+        <div class="params-panel">
+          <div class="params-header">
+            <span>Retouch Params</span>
+          </div>
+          <pre class="params-text"></pre>
+        </div>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
