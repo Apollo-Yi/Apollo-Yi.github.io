@@ -1,0 +1,4 @@
+Exposure: -20
+Contrast: +43
+Highlights: -36
+shadows: -18

@@ -1,0 +1,12 @@
+Exposure: -15
+Contrast: +20
+Highlights: +25
+shadows: +19
+Whites: +7
+Blacks: +24
+Vibrance: +25
+SaturationYellow: +18
+SaturationOrange: +10
+SaturationBlue: +20
+LuminanceYellow: +15
+LuminanceGreen: +25

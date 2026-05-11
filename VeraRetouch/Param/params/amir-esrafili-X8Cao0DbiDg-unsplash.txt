@@ -1,0 +1,11 @@
+SaturationRed: +25
+SaturationOrange: +25
+SaturationYellow: -100
+SaturationGreen: -100
+SaturationAqua: -100
+SaturationBlue: -100
+SaturationPurple: -100
+SaturationMagenta: +20
+LuminanceRed: +20
+LuminanceOrange: +30
+LuminanceMagenta: +20
