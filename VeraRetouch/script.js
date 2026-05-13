@@ -301,5 +301,5 @@ const observer = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll(".section-heading, .glass-card, .comparison-card, .param-card, .pipeline-card")
+  .querySelectorAll(".section-heading, .glass-card, .demo-video-card, .comparison-card, .param-card, .pipeline-card")
   .forEach((element) => observer.observe(element));
